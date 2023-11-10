@@ -2,6 +2,8 @@ package pl.yuro.zupki.model;
 
 import jakarta.persistence.*;
 
+import java.util.Optional;
+
 @Entity
 @Table(name = "zupki")
 public class Zupka {
@@ -42,7 +44,9 @@ public class Zupka {
     }
 
     public String getMarka() {
-        return marka;
+        if (String.valueOf(marka) == "null") {
+            return "";
+        } return marka;
     }
 
     public void setMarka(String marka) {
@@ -50,7 +54,10 @@ public class Zupka {
     }
 
     public String getSmak() {
-        return smak;
+            if (String.valueOf(smak) == "null") {
+                return "";
+            } return smak;
+
     }
 
     public void setSmak(String smak) {
@@ -58,7 +65,9 @@ public class Zupka {
     }
 
     public String getPochodzenie() {
-        return pochodzenie;
+        if (String.valueOf(pochodzenie) == "null") {
+            return "";
+        } return this.pochodzenie;
     }
 
     public void setPochodzenie(String pochodzenie) {

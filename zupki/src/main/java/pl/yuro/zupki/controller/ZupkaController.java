@@ -48,7 +48,26 @@ public class ZupkaController {
 
     @PostMapping("/zupki")
     public ResponseEntity<Zupka> createZupka(@RequestBody Zupka zupka) {
+
+
         try {
+            if (zupka.getMarka().isEmpty()) {
+                return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+            }
+            String smakDummy = zupka.getSmak();
+            if (zupka.getSmak().isEmpty() || zupka.getSmak().isBlank() || zupka.getSmak() == "") {
+                return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+            }
+            if (zupka.getPochodzenie().isEmpty()) {
+                return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+            }
+            if (zupka.getWaga()<=0) {
+                return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+            }
+            if (zupka.getCena_hurtowa()<=0) {
+                return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+            }
+            System.out.println("xDD");
             Zupka _zupka = zupkaRepository
                     .save(new Zupka(zupka.getMarka(), zupka.getSmak(), zupka.getPochodzenie(), zupka.getWaga(), zupka.getCena_hurtowa()));
             return new ResponseEntity<>(_zupka, HttpStatus.CREATED);
