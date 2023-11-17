@@ -1,0 +1,2 @@
+Należy w spring initializer utworzyć nowy projekt bazujący na Java 17 i technologi maven i gradle, dodać zależności spring data, spring mvc, dev tools, mysql connector
+nowy projekt należy zimportować w intelliJ, w nowym projekcie należy wrzucić pliki z porjketu na githubie i urochomić, bo MAŁYCH zmianach, które proponuje intelliJ, uruchamianie należy wykonać z plik ZupkiApplication.java
